@@ -47,11 +47,12 @@
             </div>
             <div class="col-12 col-md-6 pagebody">
                 <div id="heading">
-                    Candidate: Tobi Raka
+                    Candidate: Tobi Raka 
+                    <br><br>
                 </div>
 
 
-                <div class="alert alert-danger alert-dismissible">THis is for error</div>
+                <div class="alert alert-danger alert-dismissible" id="error_msg"></div>
 
                 <!-- page1 starts here -->
                 <div class="page-form" id="page1">
@@ -60,34 +61,34 @@
                     <div class="form-group">
                         <label>1. Tell me a little bit about yourself. OR Introduce yourself.</label>
 
-                        <input class="form-control" name="question1" type="text">
+                        <input class="form-control" name="question1" id="question1" type="text">
                     </div>
                     
                     <div class="form-group">
                         <label>2. Why do you think you are the right fit as a driver for our company, and why do you want with us?</label>
 
-                        <input class="form-control" name="question2" type="text">
+                        <input class="form-control" name="question2" id="question2" type="text">
                     </div>
                     
                     <div class="form-group">
                         <label>3. Why should we hire you as a  driver in our organization?</label>
 
-                        <input class="form-control" name="question3" type="text">
+                        <input class="form-control" name="question3" id="question3" type="text">
                     </div>
                     
                     <div class="form-group">
                         <label>4. What duties have you performed in your role as a driver?</label>
 
-                        <input class="form-control" name="question4" type="text">
+                        <input class="form-control" name="question4" id="question4" type="text">
                     </div>
                     
                     <div class="form-group">
                         <label>5. What is your favorite mode of transportation or delivery?</label>
 
-                        <input class="form-control" name="question5" type="text">
+                        <input class="form-control" name="question5" id="question5" type="text">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success" name="btn1" id="btn1" type="text">Next </button>
+                        <button class="btn btn-success" name="btn1" id="btn1" type="button">Next </button>
                     </div>
                 </div>
                 <!-- page1 ends here -->
@@ -126,7 +127,7 @@
                         <input class="form-control" name="question10" type="text">
                     </div>
                     <div class="form-group">
-                        <button class="btn btn-success" name="btn2" id="btn2" type="text">Next </button>
+                        <button class="btn btn-success" name="btn2" id="btn2"  type="button">Next </button>
                     </div>
                 </div>
                 <!-- page2 ends here -->
@@ -167,7 +168,7 @@
                             <input class="form-control" name="question15" type="text">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success" name="btn3" id="btn3" type="text">Next </button>
+                            <button class="btn btn-success" name="btn3" id="btn3" type="button">Next </button>
                         </div>
                     </div>
                     <!-- page3 ends here -->
@@ -207,7 +208,7 @@
                             <input class="form-control" name="question20" type="text">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success" name="btn4" id="btn4" type="text">Next </button>
+                            <button class="btn btn-success" name="btn4" id="btn4" type="button">Next </button>
                         </div>
                     </div>
                     <!-- page4 ends here -->
@@ -246,7 +247,7 @@
                             <input class="form-control" name="question25" type="text">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-success" name="btn5" id="btn5" type="text">Next </button>
+                            <button class="btn btn-success" name="btn5" id="btn5" type="button">Next </button>
                         </div>
                     </div>
                     <!-- page5 ends here -->
@@ -269,7 +270,7 @@
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-success" name="btn6" id="btn6" type="text">Next </button>
+                            <button class="btn btn-success form-control" name="btn6" id="btn6" type="text">Complete Application </button>
                         </div>
                     </div>
                     <!-- page6 ends here -->
@@ -285,5 +286,93 @@
 
     </div>
 </form>
+
+<script>
+   
+   $(function(){
+
+
+    $('#btn1').click(function(){
+
+            var question1 = $('#question1').val();
+            var question2 = $('#question2').val();
+            var question3 = $('#question3').val();
+            var question4 = $('#question4').val();
+            var question5 = $('#question5').val();
+
+            
+            if(!question1)
+            {
+                $('#error_msg').html('All information on this page is required -  See question 1');
+                $('#error_msg').show();
+                $('#question1').addClass('txt_error');
+                return false;
+            }
+
+            if(!question2)
+            {   
+                $('#error_msg').html('All information on this page is required -  See question 2');
+                $('#error_msg').show();
+                $('#question2').addClass('txt_error');
+                return false;
+            }
+
+            if(!question3)
+            {
+                $('#error_msg').html('All information on this page is required -  See question 3');
+                $('#error_msg').show();
+                $('#question3').addClass('txt_error');
+                return false;
+            }
+
+            if(!question4)
+            {
+                $('#error_msg').html('All information on this page is required -  See question 4');
+                $('#error_msg').show();
+                $('#question4').addClass('txt_error');
+                return false;
+            }
+
+            if(!question5)
+            {
+                $('#error_msg').html('All information on this page is required -  See question 5');
+                $('#error_msg').show();
+                $('#question5').addClass('txt_error');
+                return false;
+            }
+
+            $('#error_msg').hide();
+            $('.page-form').hide();
+            $('#page2').show(30);
+        })
+
+
+        $('#btn2').click(function(){
+            $('.page-form').hide();
+            $('#page3').show(30);
+        })
+
+
+        $('#btn3').click(function(){
+            $('.page-form').hide();
+            $('#page4').show(30);
+        })
+
+
+        $('#btn4').click(function(){
+            $('.page-form').hide();
+            $('#page5').show(30);
+        })
+
+
+        $('#btn5').click(function(){
+            $('.page-form').hide();
+            $('#page6').show(30);
+        })
+
+
+   })
+    
+</script>
 </body>
 </html>
