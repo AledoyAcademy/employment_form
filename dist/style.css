@@ -41,3 +41,17 @@ html {
 .form-group{
   margin-bottom: 30px;
 }
+
+.page-form,.alert{
+  display: none;
+}
+
+#page1{
+  display: block;
+}
+
+.txt_error{
+  border-color: red !important;
+  border-style: solid;
+  border-width: 1px;
+}
