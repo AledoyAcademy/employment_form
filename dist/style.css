@@ -41,3 +41,8 @@ html {
 .form-group{
   margin-bottom: 30px;
 }
+<style>
+        .page-form {
+            display: none;
+        }
+    </style>

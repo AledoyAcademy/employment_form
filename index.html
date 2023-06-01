@@ -285,5 +285,39 @@
 
     </div>
 </form>
+
+<script>
+    // Get all the page forms
+    var pageForms = document.querySelectorAll('.page-form');
+    var currentPage = 0;
+
+    function showPage(pageIndex) {
+        // Hide all the page forms
+        for (var i = 0; i < pageForms.length; i++) {
+            pageForms[i].style.display = 'none';
+        }
+
+        // Show the current page form
+        pageForms[pageIndex].style.display = 'block';
+    }
+
+    function nextPage() {
+        // Check if there is a next page
+        if (currentPage < pageForms.length - 1) {
+            currentPage++;
+            showPage(currentPage);
+        }
+    }
+
+    // Show the first page initially
+    showPage(currentPage);
+
+    // Add event listener to the next button
+    var nextButton = document.getElementById('btn1'); // Update the ID accordingly for each page
+    nextButton.addEventListener('click', function(event) {
+        event.preventDefault();
+        nextPage();
+    });
+</script>
 </body>
 </html>
