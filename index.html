@@ -260,13 +260,13 @@
                         <div class="form-group">
                             <label>26. Do you have a clean driving record?.</label>
     
-                            <input class="form-control" name="question26" type="text">
+                            <input class="form-control" name="question26"  id="question26" type="text">
                         </div> 
 
                         <div class="form-group">
                             <label>27. What would be the first thing you do if you got into an accident while driving for us?.</label>
     
-                            <input class="form-control" name="question27" type="text">
+                            <input class="form-control" name="question27" id="question27" type="text">
                         </div>
 
                         <div class="form-group">
@@ -557,12 +557,38 @@
                 $('#question25').addClass('txt_error');
                 return false;
             }
+
             $('#error_msg').hide();
             $('.page-form').hide();
             $('#page6').show(30);
         })
 
+        $('#btn6').click(function(){
+            var question26 = $('#question26').val();
+            var question27 = $('#question27').val();
 
+
+
+            if(!question26)
+            {
+                $('#error_msg').html('All information on this page is required -  See question 26');
+                $('#error_msg').show();
+                $('#question26').addClass('txt_error');
+                return false;
+            }
+
+            if(!question27)
+            {   
+                $('#error_msg').html('All information on this page is required -  See question 27');
+                $('#error_msg').show();
+                $('#question27').addClass('txt_error');
+                return false;
+            }
+
+
+            $('#error_msg').hide();
+            $('.page-form').hide();
+        })
    })
 
    
