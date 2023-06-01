@@ -23,17 +23,67 @@
 <script src="dist/js/wow.min.js"></script>
 
 
+<script>
+    $(function () {
+
+      // My timer starts here
+       let timer2 = "10:01";
+    //   var timer2 = "<?php echo $time_diff; ?>";
+      var interval = setInterval(function () {
+        var timer = timer2.split(":");
+        //by parsing integer, I avoid all extra string processing
+        var minutes = parseInt(timer[0], 10);
+        var seconds = parseInt(timer[1], 10);
+
+        --seconds;
+
+        minutes = seconds < 0 ? --minutes : minutes;
+        if (minutes < 0) clearInterval(interval);
+        seconds = seconds < 0 ? 59 : seconds;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        //minutes = (minutes < 10) ?  minutes : minutes;
+        $(".countdown").html(minutes + ":" + seconds);
+        timer2 = minutes + ":" + seconds;
+      }, 1000);
+
+      // my timer ends here
+
+      // check timer and warn if time is less that an agreed time
+      setInterval(function () {
+        var wtime = $(".countdown").html();
+
+        // if (wseconds == 20) {
+        //   alert("You have 20 seconds remaining");
+
+        if (wtime == '5:00') {
+          alert("You have 5 minutes remaining");
+    
+          $(".countdown").css("border-width", "3px");
+          $(".countdown").css("border-color", "red");
+          $(".countdown").css("color", "red");
+          $(".countdown").css("border-style", "solid");
+        }
+
+        if (wtime == '0:01') {
+          alert("Interview evaluation time up");
+          document.getElementById("myForm").submit();
+        }
+      }, 1000);
+})
+
+  </script>
+
 </head>
 
 <body>
-    <form action="complete.html" method="post">
+    <form action="complete.html" method="post" id="myForm">
     <div class="container"> 
         <div class="row">
             <div class="col-12 col-md-3">
             </div>
             <div class="col-12 col-md-6 pagebody">
                 <div id="heading">
-                    Employee Interview Screening Form
+                    Employee Interview Screening Form <span class="countdown"></span>
                 </div>
             </div>
             <div class="col-12 col-md-3">
